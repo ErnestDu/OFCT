@@ -1,0 +1,64 @@
+module oftypes {
+    // simple types used in openflow_types
+    group simple_types {
+        type integer uint8 (0 .. 255);
+        type integer uint16 (0 .. 65525);
+        type integer uint32 (0 .. 4294967295);
+    }
+    
+    // defines openflow common structures
+    group openflow_types {
+        // openflow message types
+        type enumerated OF_Type {
+            /* Immutable messages. */
+            OFPT_HELLO, /* Symmetric message */
+            OFPT_ERROR, /* Symmetric message */
+            OFPT_ECHO_REQUEST, /* Symmetric message */
+            OFPT_ECHO_REPLY, /* Symmetric message */
+            OFPT_VENDOR, /* Symmetric message */
+            /* Switch configuration messages. */
+            OFPT_FEATURES_REQUEST, /* Controller/switch message */
+            OFPT_FEATURES_REPLY, /* Controller/switch message */
+            OFPT_GET_CONFIG_REQUEST, /* Controller/switch message */
+            OFPT_GET_CONFIG_REPLY, /* Controller/switch message */
+            OFPT_SET_CONFIG, /* Controller/switch message */
+            /* Asynchronous messages. */
+            OFPT_PACKET_IN, /* Async message */
+            OFPT_FLOW_REMOVED, /* Async message */
+            OFPT_PORT_STATUS, /* Async message */
+            /* Controller command messages. */
+            OFPT_PACKET_OUT, /* Controller/switch message */
+            OFPT_FLOW_MOD, /* Controller/switch message */
+            OFPT_PORT_MOD, /* Controller/switch message */
+            /* Statistics messages. */
+            OFPT_STATS_REQUEST, /* Controller/switch message */
+            OFPT_STATS_REPLY, /* Controller/switch message */
+            /* Barrier messages. */
+            OFPT_BARRIER_REQUEST, /* Controller/switch message */
+            OFPT_BARRIER_REPLY, /* Controller/switch message */
+            /* Queue Configuration messages. */
+            OFPT_QUEUE_GET_CONFIG_REQUEST, /* Controller/switch message */
+            OFPT_QUEUE_GET_CONFIG_REPLY /* Controller/switch message */
+        }
+
+        // openflow message header
+        type record OF_Header {
+            uint8 of_version,
+            uint8 of_type,
+            // Type of_type,
+            uint16 of_length,
+            uint32 of_xid optional
+        }
+    }
+    
+    // defines openflow messages
+    group openflow_messages {
+        type OpenFlow_Header Hello_Msg;
+        type OpenFlow_Header Echo_Reques_Msg;
+        type OpenFlow_Header Echo_Request_Msg;
+        type OpenFlow_Header Features_Request_Msg;
+        type OpenFlow_Header Get_Config_Request_Msg;
+        type OpenFlow_Header Barrierr_Request_Msg;
+        type OpenFlow_Header Barrierr_Reply_Msg;
+    }
+}
