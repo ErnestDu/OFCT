@@ -9,7 +9,7 @@ module oftypes {
     // defines openflow common structures
     group openflow_types {
         // openflow message types
-        type enumerated OF_Type {
+        type enumerated OpenFlow_Type {
             /* Immutable messages. */
             OFPT_HELLO, /* Symmetric message */
             OFPT_ERROR, /* Symmetric message */
@@ -42,7 +42,7 @@ module oftypes {
         }
 
         // openflow message header
-        type record OF_Header {
+        type record OpenFlow_Header {
             uint8 of_version,
             uint8 of_type,
             // Type of_type,

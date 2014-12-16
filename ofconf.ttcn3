@@ -1,0 +1,34 @@
+module ofconf {
+    type port OpenFlowPort message {
+        inout all;
+    }
+
+    /*type component OpenFlowInterfaces {
+        port OpenFlowPort TCP1;
+    }*/
+
+    type component SwitchInterface {
+        port OpenFlowPort SWP;
+    }
+
+    type component ControllerInterface {
+        port OpenFlowPort CLP;
+    }
+
+    type component Tester {
+        port OpenFlowPort OFP;
+        timer t0 := 5.0
+    }
+    /*
+    type component TcpTester {
+         port OpenFlowPort OFP;
+         timer t0 := 5.0
+     }
+
+    type component OpenFlowComponent {
+        timer t0 := 5.0;
+        port OpenFlowPort OFP;
+        //timer t0 := 5.0;
+    }
+    */
+}

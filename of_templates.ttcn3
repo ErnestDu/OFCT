@@ -1,0 +1,45 @@
+module of_template {
+    template Hello_Msg hello_s := {
+        of_version := 1,
+        of_type := 0,
+        of_length := 8,
+        of_xid := 2
+    }
+    /*
+    template Hello_Msg hello_s := {
+        of_version := 1,
+        of_type := OFPT_HELLO,
+        of_length := 8,
+        of_xid := 2
+    }
+    */
+    template Hello_Msg hello_r := {
+        of_version := 1,
+        of_type := 0,
+        of_length := 8,
+        of_xid := 2
+    }
+    /*
+    template Hello_Msg hello_r := {
+        of_version := 1,
+        of_type := OFPT_HELLO,
+        of_length := 8,
+        of_xid := 2
+    }
+    */
+    
+   /* template OpenFlowHeader Hello_c := {
+        of_version := 1,
+        of_type := 0,
+        of_length := 8,
+        of_xid := 2
+    }
+
+    template OpenFlowHeader Hello_r := {
+        of_version := 1,
+        of_type := 0,
+        of_length := 8,
+        of_xid := ?
+    }
+    */
+}

@@ -1,0 +1,38 @@
+module basic_test {
+    import from oftypes all;
+    import from ofconf all;
+    import from of_templates all;
+
+    /*testcase OpenFlow_001() runs on OpenFlowComponent system OpenFlowInterfaces {
+        map(self:OFP, system:TCP1);
+        OFP.send(Hello_s);
+        t0.start(5.0);
+        alt {
+            [] OFP.receive(Hello_r) {
+                t0.stop;
+                setverdict(pass);
+            }
+            [] t0.timeout {
+                setverdict(inconc);
+                stop;
+            }
+        }
+    }
+    */
+    testcase TcpTest() runs on Tester system SwitchInterface {
+        map(self:OFP, system:SWP);
+        OFP.send(Hello_s);
+        t0.start(5.0);
+        alt {
+                    [] OFP.receive(?) {
+                        t0.stop;
+                        setverdict(pass);
+                    }
+                    [] t0.timeout {
+                        setverdict(inconc);
+                        stop;
+                    }
+                }
+
+    }
+}
